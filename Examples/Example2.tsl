@@ -1,0 +1,18 @@
+Ttile baseTile = inputTile tile1.tl;
+Tint size = getWidth baseTile;
+Ttile xorTile = scaleUp baseTile 100;
+Ttile blankTile = blank (size*100) (size*100);
+
+for (Tint i = 98 : Tint i > 1 : Tint i = i - 2) do
+	Ttile scaledTile = scaleUp baseTile i:
+	Ttile nextTile = place scaledTile on blankTile ((100-i)*size) ((100-i)*size):
+	Ttile xorTile = xorTile xor nextTile:
+endfor;
+
+Ttile finalTile = blank (size*200) (size*200);
+Ttile finalTile = place xorTile on finalTile 0 0;
+Ttile finalTile = place (flipX xorTile) on finalTile (size*100) 0;
+Ttile finalTile = place (flipY xorTile) on finalTile 0 (size*100);
+Ttile finalTile = place (flipY (flipX xorTile)) on finalTile (size*100) (size*100);
+
+outputTile finalTile;

@@ -1,0 +1,33 @@
+Ttile tile1 = inputTile tile1.tl;
+Ttile tile2 = inputTile tile2.tl;
+Ttile tile3 = inputTile tile3.tl;
+Tint size = getWidth tile1;
+Ttile finalTile = blank (size*60) (size*60);
+Ttile rowTile1 = blank (size*60) size; 
+Ttile blankTile = blank size size;
+
+for (Tint j = 0 : Tint j < 20 : Tint j = j + 1) do
+	Ttile rowTile1 = place tile1 on rowTile1 (j*3*size) 0:
+	Ttile rowTile1 = place tile2 on rowTile1 (size+(j*3*size)) 0:
+    	Ttile rowTile1 = place tile3 on rowTile1 ((size*2)+(j*3*size)) 0:
+endfor;
+
+Ttile rowTile2 = place (subtile rowTile1 size 0 (59*size) size) on rowTile1 0 0;
+Ttile rowTile2 = place tile1 on rowTile2 (59*size) 0;
+
+Ttile rowTile3 = place (subtile rowTile2 size 0 (59*size) size) on rowTile2 0 0;
+Ttile rowTile3 = place tile2 on rowTile3 (59*size) 0;
+
+for (Tint i = 0 : Tint i < 20 : Tint i = i + 1) do
+	Ttile finalTile = place rowTile2 on finalTile 0 (i*3*size):
+	Ttile finalTile = place rowTile1 on finalTile 0 ((i*3*size)+size):
+	Ttile finalTile = place rowTile3 on finalTile 0 ((i*3*size)+size+size):
+endfor;
+Ttile finalTile = place blankTile on finalTile 0 0;
+Ttile finalTile = place blankTile on finalTile size 0;
+Ttile finalTile = place blankTile on finalTile 0 size;
+Ttile finalTile = place blankTile on finalTile (59*size) (59*size);
+Ttile finalTile = place blankTile on finalTile (59*size) (58*size);
+Ttile finalTile = place blankTile on finalTile (58*size) (59*size);
+
+outputTile finalTile;

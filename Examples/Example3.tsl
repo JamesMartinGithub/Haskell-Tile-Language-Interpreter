@@ -1,0 +1,18 @@
+Ttile baseTile = inputTile tile1.tl;
+Tint size = getWidth baseTile;
+Ttile triTile = blank (101*size) (101*size);
+for (Tint i = 0 : Tint i < 101 : Tint i = i + 1) do
+	for (Tint j = 0 : Tint j < 101 : Tint j = j + 1) do
+		if (Tint (2*j) < i) then
+			Ttile triTile = place baseTile on triTile (j*size) (i*size):
+		endif:
+	endfor:
+endfor;
+Ttile reflectTile = flipX triTile;
+Ttile upTile = rotateL reflectTile;
+Ttile dualTriTile = triTile or upTile;
+Ttile downTile = rotateL triTile;
+Ttile wingedTile = downTile xor reflectTile;
+Ttile finalTile = wingedTile xor dualTriTile;
+
+outputTile finalTile;

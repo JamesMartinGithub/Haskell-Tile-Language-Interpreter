@@ -1,0 +1,12 @@
+To use alex (produces Tokens.hs):
+alex Tokens.x
+
+To use happy (produces Parser.hs):
+happy Parser.y
+
+To compile interpreter:
+ghc Tsl.hs
+
+To run interpreter:
+Tsl.exe
+[Input string here..]
