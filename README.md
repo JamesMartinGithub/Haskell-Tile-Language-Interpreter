@@ -13,6 +13,9 @@ A Haskell-based interpreter and programming language that works with tiles (2D l
 Syntax highlighting for Notepad++ is provided in `TileC_notepad++_highlighting.xml`
 - This can be imported through:  **Language -> Define your language... -> Import**  then selecting the xml file
 
+Example highlighting:
+![HighlightingExample](https://github.com/JamesMartinGithub/Haskell-Tile-Language-Interpreter/assets/45734948/51f73948-027e-4e75-a447-02644cbd174f)
+
 ## Acknowledgements:
 - The interpreter was made using the Alex Haskell lexer generator: https://github.com/haskell/alex
 - The parser was made using the Happy Haskell parser generator: https://github.com/haskell/happy
